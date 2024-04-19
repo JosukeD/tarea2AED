@@ -18,9 +18,7 @@ private:
 public:
     DoublyLinkedList() : head(nullptr), tail(nullptr), size_(0) {}
 
-    ~DoublyLinkedList() {
-        clear();
-    }
+    ~DoublyLinkedList() {}
 
     T front() {
         if (empty()) {throw out_of_range("Lista vacia");}

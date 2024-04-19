@@ -17,6 +17,8 @@ private:
 public:
     CircularDoublyLinkedList() : head(nullptr), length(0) {}
 
+    ~CircularDoublyLinkedList() {}
+
     T front() {
         if (empty()) {throw out_of_range("Lista vacia");}
         return head->data;
