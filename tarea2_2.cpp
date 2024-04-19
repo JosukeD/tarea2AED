@@ -153,7 +153,7 @@ public:
 };
 
 
-// Cases echos por gpt
+// Cases zzzz
 int main() {
     CircularDoublyLinkedList<int> list;
 
@@ -172,7 +172,7 @@ int main() {
 
     cout << "Element at position 2: " << list[2] << endl;
 
-    cout << "Removing element at position 3: " << endl;
+    cout << "Removing element at position 3: "<< list[3] << endl;
     list.remove(3);
     list.printlist();
     
@@ -192,4 +192,5 @@ int main() {
     cout << "Is the list empty after clearing? " << (list.empty() ? "Yes" : "No") << endl;
     list.printlist();
 
+    return 0;
 }
