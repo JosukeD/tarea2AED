@@ -18,8 +18,6 @@ private:
 public:
     DoublyLinkedList() : head(nullptr), tail(nullptr), size_(0) {}
 
-    ~DoublyLinkedList() {}
-
     T front() {
         if (empty()) {throw out_of_range("Lista vacia");}
         return head->data;
@@ -104,6 +102,7 @@ public:
     }
 
     void remove(int position) {
+        if (empty()) {throw out_of_range("Lista vacia");}
         if (position == 0) {
             pop_front();
         } else if (position == size_ - 1) {
@@ -156,7 +155,7 @@ public:
         }
     }
 
-    void printlist() {
+    void printList() {
         if (empty()) {return;}
         Node* current = head;
         while (current != nullptr) {
@@ -183,49 +182,49 @@ int main() {
 
     list.push_front(0);
     cout << "List after push_front(0): ";
-    list.printlist();
+    list.printList();
 
     list.push_back(3);
     cout << "List after push_back(3): ";
-    list.printlist();
+    list.printList();
 
     cout << "Popped front element: " << list.pop_front() << endl;
     cout << "List after pop_front(): ";
-    list.printlist();
+    list.printList();
 
     cout << "Popped back element: " << list.pop_back() << endl;
     cout << "List after pop_back(): ";
-    list.printlist();
+    list.printList();
 
     list.insert(5, 1);
     cout << "List after insert(5, 1): ";
-    list.printlist();
+    list.printList();
 
     list.remove(1);
     cout << "List after remove(1): ";
-    list.printlist();
+    list.printList();
 
     cout << "Element at position 0: " << list[0] << endl;
 
     cout << "Is list empty? " << (list.empty() ? "Yes" : "No") << endl;
     cout << "Lista actual: ";
-    list.printlist();
+    list.printList();
 
     cout << "Size of list: " << list.size() << endl;
 
     list.clear();
     cout << "List cleared. Is list empty now? " << (list.empty() ? "Yes" : "No") << endl;
     cout << "Lista actual: ";
-    list.printlist();
+    list.printList();
 
     list.push_back(1);
     list.push_back(2);
     list.push_back(3);
     cout << "Original list: ";
-    list.printlist();
+    list.printList();
     list.reverse();
     cout << "Reversed list: ";
-    list.printlist();
+    list.printList();
 
     return 0;
 }

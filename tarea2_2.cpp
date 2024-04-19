@@ -17,8 +17,6 @@ private:
 public:
     CircularDoublyLinkedList() : head(nullptr), length(0) {}
 
-    ~CircularDoublyLinkedList() {}
-
     T front() {
         if (empty()) {throw out_of_range("Lista vacia");}
         return head->data;
@@ -130,9 +128,7 @@ public:
     }
 
     void reverse() {
-        if (empty()) {
-            return;
-        }
+        if (empty()) {throw out_of_range("Lista vacia");}
         Node* current = head;
         do {
             Node* temp = current->next;
@@ -143,8 +139,8 @@ public:
         head = head->next;
     }
 
-    void printlist() {
-        if (empty()) {return;}
+    void printList() {
+        if (empty()) {throw out_of_range("Lista vacia");}
         Node* current = head;
         do {
             cout << current->data << " ";
@@ -163,36 +159,36 @@ int main() {
     list.push_front(2);
     list.push_back(3);
     list.push_back(4);
-    list.printlist();
+    list.printList();
 
     cout << "Front: " << list.front() << endl;
     cout << "Back: " << list.back() << endl;
     cout << "Size: " << list.size() << endl;
 
     list.insert(5, 2);
-    list.printlist();
+    list.printList();
 
     cout << "Element at position 2: " << list[2] << endl;
 
     cout << "Removing element at position 3: "<< list[3] << endl;
     list.remove(3);
-    list.printlist();
+    list.printList();
     
     cout << "Removing last element: " << list.pop_back() << endl; 
-    list.printlist();
+    list.printList();
 
     cout << "Size after removals: " << list.size() << endl;
-    list.printlist();
+    list.printList();
 
     list.reverse();
 
     cout << "Elements after reversal: ";
-    list.printlist();
+    list.printList();
 
     list.clear();
 
     cout << "Is the list empty after clearing? " << (list.empty() ? "Yes" : "No") << endl;
-    list.printlist();
+    list.printList();
 
     return 0;
 }
